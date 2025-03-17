@@ -1,5 +1,5 @@
 export function ContactForm(){
     return (
-        <div>Contact me</div>
+        <div>Contact Us</div>
     )
 }
