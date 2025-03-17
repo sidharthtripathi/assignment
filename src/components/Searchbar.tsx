@@ -1,4 +1,4 @@
-import { User } from "@/pages/UsersPage";
+import { User } from "@/types/types";
 import { useState, useEffect } from "react";
 import { Input } from "./ui/input";
 import {useDebounce} from '@uidotdev/usehooks'
@@ -10,7 +10,7 @@ export default function Searchbar({
 }) {
   const {getUsers} = useQuery()
   const [input, setInput] = useState<string>("");
-  const debouncedInput = useDebounce(input,500)
+  const debouncedInput = useDebounce(input,1000)
 
   // Debounce input value
   useEffect(() => {

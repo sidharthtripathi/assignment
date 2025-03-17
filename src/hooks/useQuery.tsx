@@ -1,5 +1,5 @@
 import { QueryContext } from "@/context/queryResponseContext";
-import { User } from "@/pages/UsersPage";
+import { User } from "@/types/types";
 import { useContext } from "react";
 export  function useQuery(){
     const queryContext = useContext(QueryContext)

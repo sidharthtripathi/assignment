@@ -1,21 +1,27 @@
 import Searchbar from "@/components/Searchbar";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { User } from "@/types/types";
 import { useState } from "react";
-export type User = {
-  id: number;
-  name: string;
-  email: string;
-  username: string;
-};
 export default function UsersPage() {
   const [results, setResults] = useState<User[]>([]);
   return (
     <div>
       <Searchbar setResults={setResults} />
-      <ul>
+      <div>
         {results.map((result) => (
-          <li key={result.id}>{result.username}</li>
+          <Card key={result.id}>
+            <CardHeader>
+              <CardTitle>{result.username}</CardTitle>
+              <CardDescription>
+               {result.name}
+              </CardDescription>
+            </CardHeader>
+            <CardFooter>
+              {result.email}
+            </CardFooter>
+          </Card>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
