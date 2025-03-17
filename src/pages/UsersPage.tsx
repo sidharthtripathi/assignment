@@ -9,6 +9,7 @@ export type User = {
 };
 export default function UsersPage() {
   const [users, setUsers] = useState<User[]>([]);
+  const [loading,setLoading] = useState(true)
   
   const [results, setResults] = useState<User[]>([]);
   const debouncedSearchResults = useDebounce(results, 500);
@@ -21,18 +22,19 @@ export default function UsersPage() {
       const users = (await response.json()) as User[];
       setUsers(users);
       setResults(users);
-      console.log(users);
+      setLoading(false)
     }
     fetchUsers();
   }, []);
   return (
     <div>
       <Searchbar setResults={setResults} users={users} />
-      <ul>
+      {loading ? <p>Loading...</p> : <ul>
         {debouncedSearchResults.map((result) => (
           <li key={result.id}>{result.username}</li>
         ))}
-      </ul>
+      </ul> }
+      
     </div>
   );
 }
