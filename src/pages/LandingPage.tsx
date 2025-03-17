@@ -1,13 +1,13 @@
 import { ContactForm } from "@/components/ContactForm";
-import HeroSection from "@/components/HeroSection";
+import {HeroSection} from "@/components/HeroSection";
 import { PricingTable } from "@/components/PricingTablte";
-import ServiceCard from "@/components/ServiceCard";
+import { ServiceSection } from "@/components/ServiceCard";
 
 export default function LandingPage(){
     return (
-        <div>
+        <div className="container mx-auto">
             <HeroSection/>
-            <ServiceCard/>
+            <ServiceSection/>
             <PricingTable/>
             <ContactForm/>
         </div>

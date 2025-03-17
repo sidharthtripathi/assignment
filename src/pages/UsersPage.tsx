@@ -5,9 +5,9 @@ import { useState } from "react";
 export default function UsersPage() {
   const [results, setResults] = useState<User[]>([]);
   return (
-    <div>
+    <div className="container mx-auto">
       <Searchbar setResults={setResults} />
-      <div>
+      <div className="mt-4">
         {results.map((result) => (
           <Card key={result.id}>
             <CardHeader>
